@@ -60,7 +60,7 @@ const Header = () => {
           className="flex items-center cursor-pointer"
           onClick={() => navigate("/")}
         >
-          <img src={logo} alt="logo" className="h-[150px]" />
+          <img src={logo} alt="logo" className="h-[130px]" />
         </div>
 
         <div className="flex items-center space-x-4">
@@ -75,6 +75,59 @@ const Header = () => {
             onClick={() => handleMenuClick("/study")}
           >
             스터디
+          </span>
+          <span
+            className="cursor-pointer hover:text-blue-400"
+            onClick={() => {
+              // 카카오 로그인 버튼 클릭 시 이동하는 경로 지정
+              const params = new URLSearchParams({
+                response_type: "code",
+                redirect_uri: "http://localhost:5173/oauth/kakao",
+                client_id: "a0af8d5965cdea46c2506401963ea186",
+              });
+              const KAKAO_URL = `https://kauth.kakao.com/oauth/authorize?${params.toString()}`;
+
+              // 지정한 경로로 이동
+              window.location.href = KAKAO_URL;
+            }}
+          >
+            카카오
+          </span>
+          <span
+            className="cursor-pointer hover:text-blue-400"
+            onClick={() => {
+              // 구글 로그인 버튼 클릭 시 이동하는 경로 지정
+              const params = new URLSearchParams({
+                scope: "email profile",
+                response_type: "code",
+                redirect_uri: "http://localhost:5173/oauth/google",
+                client_id: "530115480345-84amh51vqf0h8iq9h06o9qu3g8e0s9np.apps.googleusercontent.com",
+              });
+              const GOOGLE_URL = `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`;
+
+              // 지정한 경로로 이동
+              window.location.href = GOOGLE_URL;
+            }}
+          >
+            구글
+          </span>
+          <span
+            className="cursor-pointer hover:text-blue-400"
+            onClick={() => {
+              // 네이버 로그인 버튼 클릭 시 이동하는 경로 지정
+              const params = new URLSearchParams({
+                response_type: "code",
+                redirect_uri: "http://localhost:5173/oauth/naver",
+                client_id: "yDgVTUK4rdfCfzdTD44o",
+                state: "9asdfas8d09sdf23szx",
+              });
+              const NAVER_URL = `https://nid.naver.com/oauth2.0/authorize?${params.toString()}`
+
+              // 지정한 경로로 이동
+              window.location.href = NAVER_URL;
+            }}
+          >
+            네이버
           </span>
           <div className="relative flex items-center">
             <span

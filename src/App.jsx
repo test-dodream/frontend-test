@@ -21,6 +21,7 @@ import {
   SubmitPage,
 } from "./pages";
 import Layout from "./components/layouts/Layout";
+import OAuthVerification from "./components/OAuthVerification";
 
 const App = () => {
   return (
@@ -59,6 +60,8 @@ const App = () => {
         <Route path="/:userId/books" element={<MyBooks />} />
         <Route path="/:userId/questions" element={<MyQuestions />} />
         <Route path="/:userId/studies" element={<MyStudies />} />
+
+        <Route path="/oauth/:provider" element={<OAuthVerification />} />
       </Routes>
     </Layout>
   );
